@@ -1368,6 +1368,26 @@ section {
   background: #3ac162;
 }
 
+.contactsave{
+  margin: 2.5rem auto;
+  align-items: center;
+}
+.contactsave a {
+  margin-right: 22px;
+  background: #5fcf80;
+  color: #fff;
+  border-radius: 50px;
+  padding: 8px 25px;
+  white-space: nowrap;
+  transition: 0.3s;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.contactsave a:hover {
+  background: #3ac162;
+}
+
 @-webkit-keyframes animate-loading {
   0% {
     transform: rotate(0deg);
