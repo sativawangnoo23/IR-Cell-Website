@@ -1,29 +1,32 @@
+// Module Requirements
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose');
+const ejs = require('ejs');
 
+// Secrets  (Change at Last)
+const mongopassword="YKTKDMgSsdQSIbfV"
+
+// Listening Port
 const port = process.env.PORT || 3000
 
+// Express and EJS
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
-
+app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
+// Homepage
 app.get('/', function (req, res) {
-  console.log("Homepage Opened");
-  res.sendFile(__dirname+'/public/index.html')
+  res.render('home')
 })
 
-
-// Define the static file path
-
-app.use(express.static(__dirname+'/public'));
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+// Other Static Pages
+app.get('/:pagename',function(req,res) {
+  res.render(req.params.pagename)
 })
-
 
 // Contact form
 app.get('/contact', function (req, res) {
@@ -31,8 +34,7 @@ app.get('/contact', function (req, res) {
   res.sendFile(__dirname+'/public/contact.html')
 })
 
-const password="YKTKDMgSsdQSIbfV"
-const dbUrl="mongodb+srv://web-user:"+password+"@ir-cluster.c9zhs.mongodb.net/ir?retryWrites=true&w=majority"
+const dbUrl="mongodb+srv://web-user:"+mongopassword+"@ir-cluster.c9zhs.mongodb.net/ir?retryWrites=true&w=majority"
 mongoose.connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const contactSchema={name:String, email:String, date:String, organization:String, designation:String, subject:String, message:String}
