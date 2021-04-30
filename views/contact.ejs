@@ -1,0 +1,94 @@
+<%- include('partials/header') -%>
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs" data-aos="fade-in">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <p>You're not going to hit a ridiculously long phone menu when you call us.
+        Your email isn't going to the inbox abyss, never to be seen or heard from again.
+        At Industry Relation Cell, we provide the exceptional service we'd want to experience ourselves.
+         Just fill the below form and we will reach out to you as soon as possible. </p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div data-aos="fade-up">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14042.86387084418!2d77.3158111!3d28.3674356!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xeb301eec9ff18517!2sJ.C.%20Bose%20University%20of%20Science%20and%20Technology%2C%20YMCA!5e0!3m2!1sen!2sin!4v1617690619523!5m2!1sen!2sin" width=100% height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+
+      <div class="container" data-aos="fade-up">
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="far fa-user"></i>
+                <h4>Contact:</h4>
+                <p>Dr. Rashmi Popli</p>
+                <p>Director, Industry Relation Cell</p>
+                <p>JCBUST, YMCA, Faridabad</p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>ir@jcboseust-ymca.ac.in</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+91 9810862658</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-8 mt-5 mt-lg-0">
+
+            <form action="/contact" method="post" class="x-email-form">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6 ">
+                  <input type="text" name="organization" class="form-control" id="organization" placeholder="Your Organization" required>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <input type="text" class="form-control" name="designation" id="designation" placeholder="Your Designation" required>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+<%- include('partials/footer') -%>
