@@ -1052,16 +1052,16 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Events
+# posts
 --------------------------------------------------------------*/
-.events .card {
+.posts .card {
   border: 0;
   padding: 0 30px;
   margin-bottom: 60px;
   position: relative;
 }
 
-.events .card-img {
+.posts .card-img {
   width: calc(100% + 60px);
   margin-left: 30px;
   overflow: hidden;
@@ -1069,12 +1069,12 @@ section {
   border-radius: 0;
 }
 
-.events .card-img img {
+.posts .card-img img {
   max-width: 100%;
   transition: all 0.3s ease-in-out;
 }
 
-.events .card-body {
+.posts .card-body {
   z-index: 10;
   background: #fff;
   border-top: 4px solid #fff;
@@ -1084,22 +1084,22 @@ section {
   transition: 0.3s;
 }
 
-.events .card-title {
+.posts .card-title {
   font-weight: 700;
   text-align: center;
   margin-bottom: 20px;
 }
 
-.events .card-title a {
+.posts .card-title a {
   color: #37423b;
   transition: 0.3s;
 }
 
-.events .card-text {
+.posts .card-text {
   color: #5e5e5e;
 }
 
-.events .read-more a {
+.posts .read-more a {
   color: #777777;
   text-transform: uppercase;
   font-weight: 600;
@@ -1107,19 +1107,19 @@ section {
   transition: 0.3s;
 }
 
-.events .read-more a:hover {
+.posts .read-more a:hover {
   color: #5fcf80;
 }
 
-.events .card:hover img {
+.posts .card:hover img {
   transform: scale(1.1);
 }
 
-.events .card:hover .card-body {
+.posts .card:hover .card-body {
   border-color: #5fcf80;
 }
 
-.events .card:hover .card-body .card-title a {
+.posts .card:hover .card-body .card-title a {
   color: #5fcf80;
 }
 
