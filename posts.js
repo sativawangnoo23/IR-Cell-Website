@@ -65,3 +65,14 @@ function createPost(app){
 }
 
 exports.createPost = createPost
+
+function showPost(app){
+  app.get('/posts/:id',function(req,res){
+    var findId = req.params.id
+    Post.findOne({id:findId},function(err,foundPost){
+      res.render('post',{post:foundPost})
+    })
+  })
+}
+
+exports.showPost=showPost

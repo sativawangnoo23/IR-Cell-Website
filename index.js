@@ -39,6 +39,7 @@ app.post('/contact', function (req,res){
 const posts = require(__dirname+'/posts.js');
 posts.showPosts(app);
 posts.createPost(app);
+posts.showPost(app);
 
 // Listening Port
 app.listen(port,function() {
