@@ -1,0 +1,66 @@
+<%- include('partials/header') -%>
+
+<main id="main">
+
+  <!-- ======= Breadcrumbs ======= -->
+  <div class="breadcrumbs" data-aos="fade-in">
+    <div class="container">
+      <h2>Posts</h2>
+      <p>More opportunities to connect and interact with like-minded people. Post it now!</p>
+    </div>
+  </div><!-- End Breadcrumbs -->
+
+  <!-- ======= posts Section ======= -->
+  <section id="posts" class="posts">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="btn-wrap">
+          <a href="/createpost" class="get-started-btn">Create Post</a>
+        </div>
+      </div>
+
+
+<% while(posts.length !=0){
+  post1=posts[0]
+  posts.shift()
+  post2=posts[0]
+  posts.shift() %>
+  <div class="row">
+    <div class="col-md-6 d-flex align-items-stretch">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><a href="/posts/<%= post1.id %>"><%= post1.title %></a></h5>
+          <p class="fst-italic text-center"><%= post1.author %></p>
+          <p class="card-text"><%= post1.content.slice(0,50) %>...</p>
+        </div>
+      </div>
+    </div>
+    <% if(post2 != undefined) { %>
+      <div class="col-md-6 d-flex align-items-stretch">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><a href="/posts/<%= post2.id %>"><%= post2.title %></a></h5>
+            <p class="fst-italic text-center"><%= post2.author %></p>
+            <p class="card-text"><%= post2.content.slice(0,50) %>...</p>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>
+<% } %>
+
+
+      <div class="row">
+          <form class="btn-wrap" action="/posts" method="post">
+            <button type="submit" name="btn" value="prev" class="get-started-btn">&lt Previous</button>
+            <button type="submit" name="btn" value="next" class="get-started-btn">Next &gt</button>
+          </form>
+
+      </div>
+
+    </div>
+  </section><!-- End posts Section -->
+
+</main><!-- End #main -->
+
+<%- include('partials/footer') -%>
