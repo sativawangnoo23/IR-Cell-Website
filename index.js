@@ -23,14 +23,27 @@ app.get('/', function (req, res) {
 })
 
 // Other Static Pages
-// app.get('/:pagename',function(req,res) {
-//   if (req.params.pagename !== "posts") {
-//     res.render(req.params.pagename)
-//   }
-// })
+app.get('/about', function (req, res) {
+  res.render('about')
+})
+app.get('/mous', function (req, res) {
+  res.render('mous')
+})
+app.get('/team', function (req, res) {
+  res.render('team')
+})
+app.get('/events', function (req, res) {
+  res.render('events')
+})
+app.get('/partners', function (req, res) {
+  res.render('partners')
+})
 
 // Contact form
 const contact = require(__dirname+'/contact.js');
+app.get('/contact', function (req, res) {
+  res.render('contact')
+})
 app.post('/contact', function (req,res){
   contact.submitContact(req,res)
 })
