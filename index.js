@@ -23,15 +23,21 @@ app.get('/', function (req, res) {
 })
 
 // Other Static Pages
-app.get('/:pagename',function(req,res) {
-  res.render(req.params.pagename)
-})
+// app.get('/:pagename',function(req,res) {
+//   if (req.params.pagename !== "posts") {
+//     res.render(req.params.pagename)
+//   }
+// })
 
 // Contact form
 const contact = require(__dirname+'/contact.js');
 app.post('/contact', function (req,res){
   contact.submitContact(req,res)
 })
+
+// Posts
+const posts = require(__dirname+'/posts.js');
+posts.showPosts(app);
 
 // Listening Port
 app.listen(port,function() {
