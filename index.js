@@ -47,6 +47,10 @@ app.get('/contact', function (req, res) {
 app.post('/contact', function (req,res){
   contact.submitContact(req,res)
 })
+// Subscription
+app.post('/sub', function (req,res){
+  contact.saveEmail(req,res)
+})
 
 // Posts
 const posts = require(__dirname+'/posts.js');

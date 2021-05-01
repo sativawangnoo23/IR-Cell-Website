@@ -21,3 +21,22 @@ function acknowledge(req,res,submittedContact){
 }
 
 exports.submitContact=submitContact
+
+const subscriberSchema={email:{
+    type: String,
+    validate: {
+      validator: function(v) {
+        return /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(v);
+      }},
+    required: true
+  }}
+
+const Subscriber = mongoose.model('Subscriber',subscriberSchema)
+
+function saveEmail(req,res){
+  const newSubscriber = new Subscriber(req.body)
+  newSubscriber.save()
+  res.redirect('/')
+}
+
+exports.saveEmail=saveEmail
