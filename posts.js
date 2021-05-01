@@ -66,7 +66,8 @@ function createPost(app){
 
 exports.createPost = createPost
 
-function showPost(app){
+function showPost(app,express){
+  app.use('/posts/:id',express.static("public"))
   app.get('/posts/:id',function(req,res){
     var findId = req.params.id
     Post.findOne({id:findId},function(err,foundPost){
