@@ -13,10 +13,7 @@ const postSchema = {
   title: String,
   author: String,
   email: String,
-  date: {
-    type: String,
-    default: moment().utcOffset(330).format('YYYY MM DD HH:mm:ss')
-  },
+  date: String,
   text: String,
   other: String,
   visibility: {
@@ -53,3 +50,18 @@ function showPosts(app) {
 }
 
 exports.showPosts = showPosts
+
+function createPost(app){
+  app.get('/createpost', function(req,res){
+    res.render("createpost")
+  })
+
+  app.post('/createpost', function(req,res){
+    const newPost = new Post(req.body)
+    newPost.date = moment().utcOffset(330).format('YYYY MM DD HH:mm:ss')
+    newPost.save()
+    res.render('postsuccess',{createdPost: newPost})
+  })
+}
+
+exports.createPost = createPost
