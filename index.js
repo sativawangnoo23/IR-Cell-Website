@@ -1,52 +1,62 @@
+// Module Requirements
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const mongoose = require('mongoose');
+const ejs = require('ejs');
 
+// Secrets  (Change at Last)
+
+
+// Listening Port
 const port = process.env.PORT || 3000
 
+// Express and EJS
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json());
-
+app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
+// Homepage
 app.get('/', function (req, res) {
-  console.log("Homepage Opened");
-  res.sendFile(__dirname+'/public/index.html')
+  res.render('home')
 })
 
-
-// Define the static file path
-
-app.use(express.static(__dirname+'/public'));
-app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/index.html');
+// Other Static Pages
+app.get('/about', function (req, res) {
+  res.render('about')
 })
-
+app.get('/mous', function (req, res) {
+  res.render('mous')
+})
+app.get('/team', function (req, res) {
+  res.render('team')
+})
+app.get('/events', function (req, res) {
+  res.render('events')
+})
+app.get('/partners', function (req, res) {
+  res.render('partners')
+})
 
 // Contact form
+const contact = require(__dirname+'/contact.js');
 app.get('/contact', function (req, res) {
-  console.log("Contact form Opened");
-  res.sendFile(__dirname+'/public/contact.html')
+  res.render('contact')
+})
+app.post('/contact', function (req,res){
+  contact.submitContact(req,res)
+})
+// Subscription
+app.post('/sub', function (req,res){
+  contact.saveEmail(req,res)
 })
 
-const password="YKTKDMgSsdQSIbfV"
-const dbUrl="mongodb+srv://web-user:"+password+"@ir-cluster.c9zhs.mongodb.net/ir?retryWrites=true&w=majority"
-mongoose.connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true});
-
-const contactSchema={name:String, email:String, date:String, organization:String, designation:String, subject:String, message:String}
-const Contact = mongoose.model('Contact',contactSchema)
-
-app.post('/contact', function(req,res) {
-  const newContact = new Contact(req.body)
-  newContact.date = Date().toString()
-  newContact.save()
-  res.sendFile(__dirname+'/public/contactsaved.html');
-})
-
-
-
+// Posts
+const posts = require(__dirname+'/posts.js');
+posts.showPosts(app);
+posts.createPost(app);
+posts.showPost(app,express);
 
 // Listening Port
 app.listen(port,function() {

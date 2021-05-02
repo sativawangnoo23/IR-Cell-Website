@@ -1,0 +1,32 @@
+<%- include('partials/header') -%>
+
+<section id="createpost" class="createpost">
+<div class="container" data-aos="fade-up">
+  <br /><br /><br /><br /><br /><br /><br />
+
+  <form action="/createpost" method="post" class="x-email-form">
+    <div class="row">
+      <div class="col-md-6 form-group">
+        <input type="text" name="author" class="form-control" id="name" placeholder="Your Name" required>
+      </div>
+      <div class="col-md-6 form-group mt-3 mt-md-0">
+        <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+      </div>
+    </div>
+    <div class="form-group mt-3">
+      <input type="text" class="form-control" name="title" id="subject" placeholder="Title" required>
+    </div>
+    <div class="form-group mt-3">
+      <textarea class="form-control" name="text" rows="10" placeholder="Post Content" required></textarea>
+    </div>
+    <div class="form-group mt-3">
+      <textarea class="form-control" name="other" rows="3" placeholder="Message for Us" required></textarea>
+    </div>
+
+    <div class="text-center"><button type="submit">Send Post</button></div>
+  </form>
+
+</div>
+
+</section>
+<%- include('partials/footer') -%>
