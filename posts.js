@@ -43,7 +43,7 @@ function showPosts(app) {
         if(req.body.btn=='prev'){page=page-1}
         if(req.body.btn=='next'){page=page+1}
       }
-      res.render("posts",{ posts:posts.slice(page*10,page*10+11)});
+      res.render("posts",{ posts:posts.text.slice(page*10,page*10+11)});
     });
   })
 
