@@ -32,18 +32,21 @@ function showPosts(app) {
 
     Post.find({visibility:true},null,{sort:{id:-1}}, function(err, posts) {
       maxPage=Math.floor(posts.length/10 + 1)
-      res.render("posts",{ posts:posts.slice(page*10,page*10+11)});
+      res.render("posts",{ posts:posts.slice(page*10,page*10+10)});
     });
   });
 
   app.post("/posts",function(req,res){
       Post.find({visibility:true},null,{sort:{id:-1}}, function(err, posts) {
       maxPage=Math.floor(posts.length/10 + 1)
-      if (page>-1 && page<maxPage){
         if(req.body.btn=='prev'){page=page-1}
         if(req.body.btn=='next'){page=page+1}
+        if (page>-1 && page<maxPage){
+        res.render("posts",{ posts:posts.slice(page*10,page*10+10)});
+      }else{ page=0
+        res.render("posts",{ posts:posts.slice(page*10,page*10+10)});
       }
-      res.render("posts",{ posts:posts.slice(page*10,page*10+11)});
+
     });
   })
 
