@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const moment = require('moment');
 
-const mongopassword = "YKTKDMgSsdQSIbfV" //Hide at end
+const mongopassword = process.env.mongoPassword  //Hide at end
 const dbUrl = "mongodb+srv://web-user:" + mongopassword + "@ir-cluster.c9zhs.mongodb.net/ir?retryWrites=true&w=majority"
 mongoose.connect(dbUrl, {
   useNewUrlParser: true,
